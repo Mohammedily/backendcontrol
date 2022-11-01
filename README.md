@@ -1,6 +1,2 @@
-# Example
+Create Signup and Signin and forgot password use nodemailer to send user random password for future use.
 
-To run this example:
-
-- `npm install` or `yarn`
-- `npm run dev` or `yarn dev`
