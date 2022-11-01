@@ -40,7 +40,7 @@ authrouter.post("/signin", async(req, res) => {
     return res.status(400).json({message: "Incorrect Password"});
    }
 
-   const token = jwt.sign({_id: this._id}, process.env.JWTKEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+   const token = jwt.sign({_id: this._id}, process.env.JWTKEY ,
     {
         "expiresIn":"1h"
     })
