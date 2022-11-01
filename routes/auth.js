@@ -63,19 +63,12 @@ authrouter.post("/forgot-password", async(req, res) => {
 const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
 const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
 const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57)
-const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
-  arrayFromLowToHigh(58, 64)
-).concat(
-  arrayFromLowToHigh(91, 96)
-).concat(
-  arrayFromLowToHigh(123, 126)
-)
+
   
   let randompassword = generatePassoword(8, UPPERCASE_CHAR_CODES, LOWERCASE_CHAR_CODES, NUMBER_CHAR_CODES,SYMBOL_CHAR_CODES)
    function generatePassoword(characterAmount, includeUppercase, includeNumbers, includeSymbols){
      let charCodes = LOWERCASE_CHAR_CODES
   if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
-  if (includeSymbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES)
   if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
   
   const passwordCharacters = []
@@ -99,7 +92,7 @@ function arrayFromLowToHigh(low, high) {
   Hi ${user.name},
   Note*: Dear User Your Password Has Changed,
   I will Choose Your Password Random.
-  You will use this password: ${randompassword}.
+  You will use this password: ${randompassword}
   You Can Use Password on Futhure Use.
   Thank You....
 
