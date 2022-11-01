@@ -12,18 +12,20 @@ const userrouter = require('./routes/user');
 
 dotenv.config();
 
+mongoose
+  .connect(process.env.MONGO)
+  .then(() => console.log('MongDB Is Connected'))
+  .catch((error) => console.log(error));
+
 app.use(express.json());
 app.use(cors());
 
 //middleware
 app.use(userrouter);
 
-
 app.get('/', async (req, res) => {
   return await res.send('HI');
 });
-
-
 
 const port = process.env.PORT;
 
