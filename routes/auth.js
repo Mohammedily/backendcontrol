@@ -65,8 +65,8 @@ const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
 const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57)
 
   
-  let randompassword = generatePassoword(8, UPPERCASE_CHAR_CODES, LOWERCASE_CHAR_CODES, NUMBER_CHAR_CODES,SYMBOL_CHAR_CODES)
-   function generatePassoword(characterAmount, includeUppercase, includeNumbers, includeSymbols){
+  let randompassword = generatePassoword(8, UPPERCASE_CHAR_CODES, LOWERCASE_CHAR_CODES, NUMBER_CHAR_CODES)
+   function generatePassoword(characterAmount, includeUppercase, includeNumbers){
      let charCodes = LOWERCASE_CHAR_CODES
   if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
   if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
