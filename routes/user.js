@@ -26,7 +26,7 @@ userrouter.post('/singup', async (req, res) => {
       .json({ message: 'Email Aleady Exists, Please Login' });
   }
 
-  const salt = await bcrypt.genSalt(Number(process.env.SALT || 10));
+  const salt = await bcrypt.genSalt(Number(process.env.SALT));
 
   const hassedPassword = await bcrypt.hashSync(password, salt);
 
