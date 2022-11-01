@@ -3,6 +3,7 @@ const userrouter = express.Router();
 const User = require('../model/User');
 const bcrypt = require('bcryptjs');
 
+
 userrouter.post('/singup', async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -25,7 +26,7 @@ userrouter.post('/singup', async (req, res) => {
       .json({ message: 'Email Aleady Exists, Please Login' });
   }
 
-  const salt = await bcrypt.genSalt(Number(process.env.SALT));
+  const salt = await bcrypt.genSalt(Number(process.env.SALT || 10));
 
   const hassedPassword = await bcrypt.hashSync(password, salt);
 
@@ -43,5 +44,7 @@ userrouter.post('/singup', async (req, res) => {
 
   return res.status(200).json({ message: 'User Created Sucessfully' });
 });
+
+
 
 module.exports = userrouter;
