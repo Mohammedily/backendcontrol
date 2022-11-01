@@ -17,12 +17,8 @@ userrouter.post('/singup', async (req, res) => {
     return res.status(409).json({ message: 'Please Enter Password' });
   }
 
-  let Email;
-  try {
-    Email = User.findOne({ email: email });
-  } catch (error) {
-    console.log(error);
-  }
+  let Email = await User.findOne({ email: email });
+  
   if (Email) {
     return res
       .status(409)
